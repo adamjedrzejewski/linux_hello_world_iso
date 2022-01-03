@@ -43,7 +43,7 @@ echo "Build init"
 pushd init
 zig build-exe $BUILD_DIR/hello.zig --name init # why not? https://ziglang.org/
 strip init
-find . | cpio -o -H newc > $OUT_DIR/isolinux/initrd
+find . | cpio -o -H newc | gzip - > $OUT_DIR/isolinux/initrd.gz
 popd
 
 # get isolinux
