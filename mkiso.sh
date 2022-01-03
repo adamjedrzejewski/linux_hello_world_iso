@@ -17,7 +17,7 @@ fi
 pushd $BUILD_DIR
 
 # get sources
-cp -r $SOURCE_ROOT/hello.c $BUILD_DIR
+cp -r $SOURCE_ROOT/hello.zig $BUILD_DIR
 cp $SOURCE_ROOT/isolinux.cfg $BUILD_DIR
 if [ ! -d linux-5.10.17 ]; then
     echo "Downloading kernel"
@@ -40,8 +40,9 @@ popd
 
 # build init and initrd
 echo "Build init"
-gcc -static -static-libgcc hello.c -o init/init
 pushd init
+zig build-exe $BUILD_DIR/hello.zig --name init # why not? https://ziglang.org/
+strip init
 find . | cpio -o -H newc > $OUT_DIR/isolinux/initrd
 popd
 
