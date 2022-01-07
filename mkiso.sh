@@ -1,5 +1,3 @@
-#/bin/sh
-
 KERNEL_URL="https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.10.17.tar.xz"
 SYSLINUX_URL="https://kernel.org/pub/linux/utils/boot/syslinux/6.xx/syslinux-6.03.tar.gz"
 SOURCE_ROOT=$PWD
