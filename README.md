@@ -6,7 +6,6 @@ This repository showcases how to create a minimal bootable linux iso  that after
 ## Requirements
   - bash
   - gcc
-  - [zig](https://ziglang.org/) compiler
   - mkisofs
   - a bunch of nix utilities that probably are already installed on your system
      - find
