@@ -63,7 +63,8 @@ then
     echo "Downloading kernel"
     wget -qO- $kernel_url | tar -xJ
 fi
-if [ ! -d $syslinux_dir ]; then
+if [ ! -d $syslinux_dir ]
+then
     echo "Downloading syslinux"
     wget -qO- $syslinux_url | tar -xz
 fi
