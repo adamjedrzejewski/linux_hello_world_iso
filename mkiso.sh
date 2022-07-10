@@ -1,3 +1,4 @@
+#!/bin/bash
 # check the shell
 if ! test -n "$BASH_VERSION"
 then
