@@ -1,7 +1,7 @@
 # Linux Hello World
 
 ## Purpose
-This repository showcases how to create a minimal bootable linux iso  that after booting displays `hello world` on standard output.
+This repository showcases how to create a minimal bootable linux iso. 
 
 ## Requirements
   - bash
@@ -9,7 +9,7 @@ This repository showcases how to create a minimal bootable linux iso  that after
   - flex
   - bison
   - mkisofs
-  - a bunch of nix utilities that probably are already installed on your system
+  - nix utilities:
      - find
      - gzip
      - strip
@@ -18,17 +18,27 @@ This repository showcases how to create a minimal bootable linux iso  that after
      - coreutils (mkdir, cp)
      - wget
 
+## Running
+Run `mkiso.sh` with bash
+```
+bash mkiso.sh
+```
 ## How it works?
 ### kernel
-  Since this is an example running minimal linux iso we will need linux.
-  You may find minimal config in `default.config` file.
-  #### kernel options:
-      - TODO
+  Kernel is built with minimal possible config.\
+  Relevant settings:
+  | setting name   | setting prompt                          | comment                                       |
+  | -------------- | --------------------------------------- | --------------------------------------------- |
+  | BLK_DEV_INITRD | initramfs/initrd support                | we are using initrd to store init executable  |
+  | RD_GZIP        | initramfs/initrd compression using gzip | initrd is compressed to further decrease size |
+  | BINFMT_ELF     | kernel support for elf binaries         | init executable is in this format             |
+
 ### init
-  Init is the first process that is forked after succesfully bootstrapping the kernel. Our init is solely devoted to printing a string to standard output. \
-  \
-TODO: linking
+  init is the first process that is forked after succesfully bootstrapping the kernel. The only purpose of our init is to write `hello world` message to standard output.
 ### initrd
 TODO
 ### building iso
 TODO
+
+## Result
+![hello world vm](result.png "result")
