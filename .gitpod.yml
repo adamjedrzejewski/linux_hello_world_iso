@@ -1,2 +1,2 @@
 tasks:
-  - init: sudo apt update && sudo apt install -y -- cpio flex mkisofs
+  - before: sudo apt update && sudo apt install -y -- cpio flex mkisofs
