@@ -1,0 +1,28 @@
+name: Build ISO
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+      - name: Install dependiences
+        run: |
+          sudo apt update
+          sudo apt install -y bash gcc flex bc bison mkisofs
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - name: Run build
+        run: ./mkiso.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with: 
+          name: netiso
+          path: net.iso
