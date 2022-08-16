@@ -24,5 +24,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with: 
-          name: netiso
-          path: net.iso
+          name: hello_world_iso 
+          path: hello_world.iso
