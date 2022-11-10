@@ -33,12 +33,5 @@ bash mkiso.sh
   | RD_GZIP        | initramfs/initrd compression using gzip | initrd is compressed to further decrease size |
   | BINFMT_ELF     | kernel support for elf binaries         | init executable is in this format             |
 
-### init
-  init is the first process that is forked after succesfully bootstrapping the kernel. The only purpose of our init is to write `hello world` message to standard output.
-### initrd
-TODO
-### building iso
-TODO
-
 ## Result
 ![hello world vm](result.png "result")
